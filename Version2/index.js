@@ -1,9 +1,12 @@
-function switchvisibility() {
+function switchvisibility(classname) {
+    test = document.getElementsByClassName(classname);
 
-    // document.getElementById('test').style.visibility = "hidden";
-    // document.querySelectorAll('#test').style.visibility = "hidden";
+    for(const cell of test) {
+        if(cell.classList.contains("hidden")) {
+            cell.classList.remove("hidden");
+        }else {
+            cell.classList.add("hidden");
+        }
+    }
 
-    const test = document.querySelectorAll('[test]');
-
-    test.s
 }
