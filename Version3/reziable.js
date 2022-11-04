@@ -1,10 +1,10 @@
 function resizableGrid(e){
-  var t=e.getElementsByTagName("tr")[0], n=t?t.children:void 0;
+  var t = e.getElementsByTagName("tr")[0], n = t ? t.children:void 0;
   if (n) {
     e.style.overflow="hidden";
     for (var i = e.offsetHeight, o = 0; o < n.length; o++) {
-      var r=styling(i); 
-      n[o].appendChild(r), n[o].style.position="relative", handleDrag(r)
+      var r = styling(i); 
+      n[o].appendChild(r), n[o].style.position = "relative", handleDrag(r)
     }
   }
   function handleDrag(e){
