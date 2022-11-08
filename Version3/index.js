@@ -20,7 +20,7 @@ const onMouseMove = (e) =>
       horizontalScrollOffset + e.clientX - headerBeingResized.offsetLeft;
 
     const column = columns.find(({ header }) => header === headerBeingResized);
-    column.size = Math.max(min, width) + "px"; // Enforce our minimum
+    column.size = Math.max(min, width) + "px";
 
     columns.forEach((column) => {
       if (column.size.startsWith("minmax")) {
