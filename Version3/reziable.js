@@ -35,9 +35,9 @@ function resizableGrid(e){
   
   function styling(e) {
     var t=document.createElement("div");
-    return t.style.top=0,
-           t.style.right=0,
-           t.style.width="5px",
+    return t.style.top = 0,
+           t.style.right = 0,
+           t.style.width = "5px",
            t.style.position="absolute",
            t.style.cursor="col-resize",
            t.style.userSelect="none",
@@ -48,3 +48,6 @@ function resizableGrid(e){
     return window.getComputedStyle(e,null).getPropertyValue(t)
   }
 }
+
+var table = document.getElementsByTagName("table")[0];
+wresizableGrid(table);
