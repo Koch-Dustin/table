@@ -1,7 +1,7 @@
 function switchVisibility(classname) {
-  test = document.getElementsByClassName(classname);
+  TriggeredColum = document.getElementsByClassName(classname);
 
-  for (const cell of test) {
+  for (const cell of TriggeredColum) {
     if (cell.classList.contains("hidden")) {
       cell.classList.remove("hidden");
     } else {

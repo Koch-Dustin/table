@@ -1,4 +1,4 @@
-const min = 150;
+const minimumSize = 150;
 
 const columnTypeToRatioMap = {
   numeric: 1,
@@ -13,13 +13,12 @@ let headerBeingResized;
 
 const onMouseMove = (e) =>
   requestAnimationFrame(() => {
-    console.log("onMouseMove");
 
     horizontalScrollOffset = document.documentElement.scrollLeft;
     const width =
       horizontalScrollOffset + e.clientX - headerBeingResized.offsetLeft;
 
-    const column = columns.find(({ header }) => header === headerBeingResized);
+    const column = columns.find(header => header === headerBeingResized);
     column.size = Math.max(min, width) + "px";
 
     columns.forEach((column) => {
@@ -34,7 +33,6 @@ const onMouseMove = (e) =>
   });
 
 const onMouseUp = () => {
-  console.log("onMouseUp");
 
   window.removeEventListener("mousemove", onMouseMove);
   window.removeEventListener("mouseup", onMouseUp);
@@ -43,7 +41,6 @@ const onMouseUp = () => {
 };
 
 const initResize = ({ target }) => {
-  console.log("initResize");
 
   headerBeingResized = target.parentNode;
   window.addEventListener("mousemove", onMouseMove);
@@ -52,10 +49,10 @@ const initResize = ({ target }) => {
 };
 
 document.querySelectorAll("th").forEach((header) => {
-  const max = columnTypeToRatioMap[header.dataset.type] + "fr";
+  const maximumSize = columnTypeToRatioMap[header.dataset.type] + "fr";
   columns.push({
     header,
-    size: `minmax(${min}px, ${max})`,
+    size: `minmax(${minimumSize}px, ${maximumSize})`,
   });
 
   header
