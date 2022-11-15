@@ -14,9 +14,8 @@ let headerBeingResized;
 const onMouseMove = (e) =>
   requestAnimationFrame(() => {
 
-    horizontalScrollOffset = document.documentElement.scrollLeft;
-    const width =
-      horizontalScrollOffset + e.clientX - headerBeingResized.offsetLeft;
+    const horizontalScrollOffset = document.documentElement.scrollLeft;
+    const width = horizontalScrollOffset + e.clientX - headerBeingResized.offsetLeft;
 
     const column = columns.find(header => header === headerBeingResized);
     column.size = Math.max(min, width) + "px";
@@ -33,15 +32,13 @@ const onMouseMove = (e) =>
   });
 
 const onMouseUp = () => {
-
   window.removeEventListener("mousemove", onMouseMove);
   window.removeEventListener("mouseup", onMouseUp);
   headerBeingResized.classList.remove("header--being-resized");
   headerBeingResized = null;
 };
 
-const initResize = ({ target }) => {
-
+const initResize = (target) => {
   headerBeingResized = target.parentNode;
   window.addEventListener("mousemove", onMouseMove);
   window.addEventListener("mouseup", onMouseUp);
