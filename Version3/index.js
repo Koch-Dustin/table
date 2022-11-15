@@ -27,7 +27,7 @@ const onMouseMove = (e) =>
     });
 
     table.style.gridTemplateColumns = columns
-      .map(({ header, size }) => size)
+      .map((size) => size)
       .join(" ");
   });
 
