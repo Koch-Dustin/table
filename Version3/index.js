@@ -11,11 +11,11 @@ const table = document.querySelector("table");
 const columns = [];
 let headerBeingResized;
 
-const onMouseMove = (e) =>
-  requestAnimationFrame(() => {
+const onMouseMove = (mouseMoveEvent) =>
+  requestAnimationFrame(() => { 
 
     const horizontalScrollOffset = document.documentElement.scrollLeft;
-    const width = horizontalScrollOffset + e.clientX - headerBeingResized.offsetLeft;
+    const width = horizontalScrollOffset + mouseMoveEvent.clientX - headerBeingResized.offsetLeft;
 
     const column = columns.find(header => header === headerBeingResized);
     column.size = Math.max(min, width) + "px";
